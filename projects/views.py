@@ -20,7 +20,6 @@ def project(request, pk):
 def createProject(request):
     profile = request.user.profile
     form = ProjectForm()
-
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():

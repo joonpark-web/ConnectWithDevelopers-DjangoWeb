@@ -30,7 +30,9 @@
         <div class="container">
             <div class="grid grid--three">
 
-                {% for project in projects%}
+
+                {% for project in projects %}
+                {% if project.title == "Code Sniper" %}
                 <div class="column">
                     <div class="card project">
                         <a href="{% url 'project' project.id %}" class="project">
@@ -46,7 +48,7 @@
                                     Feedback ({{project.vote_total}}) Vote{{project.vote_total|pluralize:"s"}}
                                 </p>
                                 <div class="project__tags">
-                                    {% for tag in project.tags.all %}
+                                    {% for tag in tags %}
                                     <span class="tag tag--pill tag--main">
                                         <small>{{tag}}</small>
                                     </span>
@@ -59,9 +61,8 @@
                         </a>
                     </div>
                 </div>
+                {% endif %}
                 {% endfor %}
-
-
 
 
             </div>
